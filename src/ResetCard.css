@@ -1,0 +1,14 @@
+.ResetCard {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+}
+
+.ResetCard .check {
+    background-color: green;
+    width: 100px;
+    height: 100px;
+    align-self: center;
+    mask-image: url(/check.svg);
+}

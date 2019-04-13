@@ -1,0 +1,53 @@
+.Card {
+    display: flex;
+    position: absolute;
+    padding: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    border-radius: 1rem;
+    width: 11rem;
+    height: 15rem;
+    box-shadow: 0px 0px 10px 3px rgba(50, 50, 50, 0.17);
+    /* z-index: 5; */
+    background-color: white;
+    justify-content: center;
+    flex-flow: column;
+}
+.Card:nth-child(2) {
+    /* z-index: 4; */
+    transform: scale(0.95) translate(0, 11px);
+    box-shadow: 0px 0px 10px 3px rgba(50, 50, 50, 0.12);
+}
+.Card:nth-child(3) {
+    /* z-index: 3; */
+    transform: scale(0.9) translate(0, 22px);
+    box-shadow: 0px 0px 10px 3px rgba(50, 50, 50, 0.05);
+}
+.Card:nth-child(4) {
+    /* z-index: 3; */
+    transform: scale(0.85) translate(0, 33px);
+    box-shadow: 0px 0px 10px 3px rgba(50, 50, 50, 0.02);
+}
+
+.Card.clickable {
+    cursor: pointer;
+    transition: 0.05s;
+}
+.Card.clickable:hover {
+    transition: 0.05s;
+    border-color: rgba(0, 0, 0, 0.5);
+}
+
+.Card.enter-active {
+    transition: 0s;
+}
+
+.Card.exit-active {
+    /* transform: rotate(180); */
+    box-shadow: none;
+    transform: rotate(30deg) translate(240px, 40px) scale(1.2);
+    opacity: 0;
+}
+
+.Card.enter-active {
+    opacity: 0;
+}

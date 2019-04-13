@@ -10,7 +10,7 @@ const INITIAL_CARDS = Array.from(Array(4)).map(() => {
     const id = ID();
     return {
         id,
-        content: <h2 style={{ textAlign: 'center' }}>Test {id}</h2>,
+        content: <h2 style={{ textAlign: 'center' }}>Card {id}</h2>,
     };
 });
 

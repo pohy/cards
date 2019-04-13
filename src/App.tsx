@@ -3,7 +3,7 @@ import './App.css';
 import { Card } from './Card';
 import { TransitionGroup } from 'react-transition-group';
 import { ID } from './id';
-import { TransitionStatus } from 'react-transition-group/Transition';
+import { ResetCard } from './ResetCard';
 
 const CARDS_TO_DISPLAY = 3;
 const INITIAL_CARDS = Array.from(Array(4)).map(() => {
@@ -14,10 +14,10 @@ const INITIAL_CARDS = Array.from(Array(4)).map(() => {
     };
 });
 
-const App = () => {
+export const App = () => {
     const [cards, setCards] = useState(INITIAL_CARDS);
     return (
-        <div className="cards">
+        <div className="App">
             <TransitionGroup component={null}>
                 {cards
                     .slice(0, CARDS_TO_DISPLAY)
@@ -31,37 +31,9 @@ const App = () => {
                         </Card>
                     ))}
                 {cards.length < CARDS_TO_DISPLAY && (
-                    <Card zIndex={0}>
-                        <div
-                            style={{
-                                display: 'flex',
-                                flexDirection: 'column',
-                                height: '100%',
-                                justifyContent: 'center',
-                            }}
-                        >
-                            <div
-                                style={{
-                                    maskImage: 'url(/check.svg)',
-                                    backgroundColor: 'green',
-                                    width: 100,
-                                    height: 100,
-                                    alignSelf: 'center',
-                                }}
-                            />
-                        </div>
-                        <button onClick={() => setCards(INITIAL_CARDS)}>
-                            Restart
-                        </button>
-                    </Card>
+                    <ResetCard onReset={() => setCards(INITIAL_CARDS)} />
                 )}
             </TransitionGroup>
         </div>
     );
 };
-
-export default App;
-
-function calculateCardZIndex(status: TransitionStatus, index: number) {
-    return CARDS_TO_DISPLAY - index + (status === 'exiting' ? 1 : 0);
-}
